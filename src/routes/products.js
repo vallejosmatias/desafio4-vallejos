@@ -21,7 +21,6 @@ router.get('/', async (req, res) => {
 router.get('/:pid', async (req, res) => {
   try {
     const productId = req.params.pid;
-    // Lógica para obtener y enviar un producto por ID
     const product = await obtenerProductoPorId(productId);
     res.json({ product });
   } catch (error) {
@@ -29,11 +28,9 @@ router.get('/:pid', async (req, res) => {
   }
 });
 
-// Ruta POST /api/products/
 router.post('/', async (req, res) => {
   try {
     const newProduct = req.body;
-    // Lógica para agregar un nuevo producto
     const productoAgregado = await agregarProducto(newProduct);
     res.status(201).json(productoAgregado);
   } catch (error) {
@@ -41,12 +38,10 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Ruta PUT /api/products/:pid
 router.put('/:pid', async (req, res) => {
   try {
     const productId = req.params.pid;
     const updatedFields = req.body;
-    // Lógica para actualizar un producto por ID
     const productoActualizado = await actualizarProducto(productId, updatedFields);
     res.json(productoActualizado);
   } catch (error) {
@@ -54,11 +49,9 @@ router.put('/:pid', async (req, res) => {
   }
 });
 
-// Ruta DELETE /api/products/:pid
 router.delete('/:pid', async (req, res) => {
   try {
     const productId = req.params.pid;
-    // Lógica para eliminar un producto por ID
     await eliminarProducto(productId);
     res.json({ message: 'Producto eliminado correctamente' });
   } catch (error) {

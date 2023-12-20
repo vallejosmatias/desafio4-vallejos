@@ -5,7 +5,6 @@ import { Router } from 'express';
 
 const router = Router();
 
-// Ruta POST /api/carts/
 router.post('/', async (req, res) => {
   try {
     const nuevoCarrito = await crearCarrito();
@@ -25,12 +24,12 @@ router.get('/:cid', async (req, res) => {
   }
 });
 
-// Ruta POST /api/carts/:cid/product/:pid
+
 router.post('/:cid/product/:pid', async (req, res) => {
   try {
     const cartId = req.params.cid;
     const productId = req.params.pid;
-    // Lógica para agregar el producto al arreglo “products” del carrito seleccionado
+    //agregar el producto al arreglo “products” del carrito seleccionado
     const productosEnCarrito = await agregarProductoAlCarrito(cartId, productId);
     res.json(productosEnCarrito);
   } catch (error) {

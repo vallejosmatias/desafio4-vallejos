@@ -65,7 +65,7 @@ const PRODUCTS_FILE_PATH = path.join(__dirname, '..', 'data', 'products.json');
 // Funciones de manejo de carritos
 
 async function crearCarrito() {
-  // Lógica para crear un nuevo carrito
+  // crear un nuevo carrito
   const data = await fs.readFile(CARTS_FILE_PATH, 'utf8');
   const carritos = JSON.parse(data) || [];
   const nuevoCarrito = {

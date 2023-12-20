@@ -28,12 +28,10 @@ app.use('/products', productsRouter);
 app.use("/", homeRouter);
 
 app.get('/', (req, res) => {
-  // Lógica para obtener todos los productos y renderizar la página principal
   res.render('home', { productos: obtenerProductos() });
 });
 
 app.get('/realtimeproducts', (req, res) => {
-  // Lógica para obtener productos y renderizar la página de productos en tiempo real
   res.render('realTimeProducts', { productos: obtenerProductos() });
 });
 
